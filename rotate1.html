@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>ROTATE</title>
+    <style>
+        * {
+            margin:0;
+            padding: 0;
+
+        }
+        body {
+            overflow : hidden;
+        }
+        h1 {
+            font-size : 20px;
+        }
+        button {
+            font-size : 20px;
+            padding : 10px 30px;
+            cursor : pointer;
+        }
+        .container {
+            width: 500px;
+            height: 500px;
+            
+        }
+
+        .arrow {
+            transform: rotate(180deg);
+            transition: all .7s ease-in-out;
+            width: 70px;
+            position : absolute;
+            z-index: 1;
+            left : 214px;
+            top : 305px;
+
+        }
+
+        .pannel {
+            width: 500px;
+            transition: all .7s ease-in-out;
+            position : relative;
+        }
+        
+    </style>
+
+    <script>
+        window.onload = () => {
+            let resetBtn = document.querySelector(".resetBtn");
+            let startBtn = document.querySelector(".startBtn");
+            let h1 = document.getElementsByTagName("h1")[0];
+            let arrow = document.querySelector(".arrow");
+            let pannel = document.querySelector(".pannel");
+            let startArrowBtn = document.querySelector(".startArrowBtn");
+
+
+            startBtn.addEventListener("click", ()=> {
+                rotateNum = Math.round(Math.random()*1800);
+                //arrow.style.transform = "rotate("+rotateNum+"deg)";
+                pannel.style.transform = "rotate("+rotateNum+"deg)";
+            })
+
+            resetBtn.addEventListener("click", ()=> {
+                rotateNum = 180;
+                h1.innerHTML = 0+" deg";
+                arrow.style.transform = "rotate("+rotateNum+"deg)";
+                pannel.style.transform = "rotate("+rotateNum+"deg)";
+            })
+
+            startArrowBtn.addEventListener("click", ()=> {
+                rotateNum = Math.round(Math.random()*3600) ;
+                h1.innerHTML = rotateNum + " deg";
+                arrow.style.transform = "rotate("+rotateNum+"deg)";
+            })
+
+        }
+
+    </script>
+
+    
+</head>
+<body>
+    <button type="button" class="resetBtn">Reset</button>
+    <button type="button" class="startBtn">Go pannel!</button>
+    <button type="button" class="startArrowBtn">Go arrow!</button>
+    <h1>0deg</h1>
+    <br>
+    <div class="container" >
+        <img src="/myImage/up-arrow.svg"  class="arrow" alt="image_arrow">
+        <img src="./myImage/rotate.svg" class="pannel" alt="rotate-pannel">
+    </div>
+
+</body>
+</html>
