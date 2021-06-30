@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>업다운게임2</title>
+    <style>
+        body {
+            height: 100vh;
+            background: linear-gradient(120deg, #0272a4, #f6a564);
+        
+        }
+        .contWrap{
+            position: relative;
+            width: 400px;
+            background-color: rgba(255,255,255, .7);
+            padding: 50px 20px;
+            top : 40%;
+            left : 50%;
+            text-align: center;
+            transform: translate(-50%, -50%);
+            border-radius: 20px;
+        }
+
+        input {
+            padding: 10px 40px;
+            font-size: 20px;
+            text-align: center;
+            max-width: 60px;
+        }
+
+        button {
+            font-size : 18px;
+            font-weight: bold;
+            padding: 10px 20px;
+            text-align: center;
+        
+        }
+
+    </style>
+
+    <script>
+        
+        window.onload = function(){
+            let input = document.getElementsByTagName("input")[0];
+            let result = document.querySelector(".result");
+            let button = document.querySelector(".startBtn");
+            let cnt = document.querySelector(".cnt");
+            let count = 0;
+            
+            makeNum = (num) => {
+                return Math.round(Math.random()*num)+1;
+            }
+            
+            button.addEventListener("click", ()=>{
+                resultfunc();
+                cnt.innerHTML = "try : " + ++count;
+            });
+
+            
+            let resultArr = ["업👆","다운👇", "정답!"];
+            let randomNum = makeNum(50);
+            resultfunc = () => {
+                let value = input.value;
+                if(value == randomNum){
+                    result.innerHTML = resultArr[2];
+                    setTimeout(()=>{
+                        reset();
+                    },2000);
+
+                }else if(value > randomNum) {
+                    result.innerHTML = resultArr[1];
+                }else {
+                    result.innerHTML = resultArr[0];
+                }
+            } 
+
+            reset = () => {
+                randomNum = makeNum(50);
+                result.innerHTML = "RESET GAME";
+                cnt.innerHTML = "try : " + 0;
+                count = 0;
+                input.value = 1;
+            }
+
+
+            
+
+        }
+
+
+    </script>
+
+    
+</head>
+<body>
+    <div class="contWrap">
+        <h3>Choose number</h3>
+        <p class="result">힌트 : 1부터 50사이</p>
+        <input type="number" value="1" max="50" min="1">
+        <button type="button" class="startBtn">확인</button>
+        <p class="cnt">0</p>
+    </div>
+    
+</body>
+</html>

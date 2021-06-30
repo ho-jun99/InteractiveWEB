@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        height: 100vh;
+    }
+
+    .wrap {
+        position: relative;
+        padding: 20px;
+        top : 40%;
+        left : 50%;
+        transform: translate(-50%,-50%);
+        text-align: center;
+    }
+    
+    button {
+        font-size : 20px;
+        padding : 8px 20px;
+
+    }
+    
+
+</style>
+
+<script>
+    window.onload = () => {
+        let button = document.querySelector(".startBtn");
+            let num = document.querySelector(".num");
+
+            button.addEventListener("click",()=>{
+                interval();
+            });
+
+            let timer;
+
+            let interval = () => {
+                clearInterval(timer);
+
+                let secNum = 0;
+                timer = setInterval(()=>{
+                    secNum++;
+                    num.innerHTML = secNum;
+                },100);
+            }
+    }
+    
+
+</script>
+
+<body>
+    <div class="wrap">
+        <button type="button" class="startBtn">더하기 시작</button>
+        <h1 class="num">0</h1>
+    </div>
+
+
+    
+</body>
+</html>
