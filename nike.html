@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>nike</title>
+</head>
+<style>
+	body {
+		overflow-x: hidden;
+		background-color: white;
+	}
+
+	section {
+		position: relative;
+		height: 100vh;
+		width: 100vw;
+		/*border-top: 5px dotted black;*/
+	}
+
+	section.active .imageWrap img {
+		opacity: 1;
+		visibility: visible;
+		transform: translate(0,0);
+	}
+
+	.innerWrap {
+		position: relative;
+		z-index: 100;
+		padding: 60px;
+		width: 340px;
+		margin-top : 50px;
+		z-index: 50;
+		
+	}
+
+	.imageWrap {
+		position: fixed;
+		width: 70%;
+		right: 5%;
+		top : 35%;
+	}
+
+	.imageWrap img{
+		position: absolute;
+		width: 400px;
+		transition: all 1s ease-in-out;
+		visibility: hidden;
+		opacity: 0;
+		transform: translate(-100px,-150px) rotate(-10deg);
+	}
+
+	.imageWrap img:nth-child(2) {
+		left: 400px;
+		top : 100px;
+		transition-delay: .2s;
+		transform: translate(100px, 150px) rotate(-10deg);
+	}
+
+	h1{
+		color: black;
+		text-align: center;
+		padding-top: 40vh;
+		font-size: 60px;
+	}
+	h2{
+		color: #333;
+		font-size: 30px;
+	}
+	p {
+		color: #000;
+		font-size: 16px;
+	}
+	.pointWrap {
+		position: fixed;
+		right: 3vw;
+		top : 40%;
+		z-index: 100;
+	}
+
+	.pointWrap li {
+		list-style: none;
+		width: 10px;
+		height: 10px;
+		background-color: #999;
+		border-radius: 50%;
+		margin-top: 15px;
+		cursor: pointer;
+		transition: background .3s ease-out;
+	}
+
+	.pointWrap li.active {
+		background-color: #000;
+		width: 13px;
+		height: 13px;
+	}
+
+	.header {
+		position: fixed;
+		background-color: black;
+		width: 100vw;
+		height: 4vh;
+		top : 2%;
+		text-align: center;
+		border-radius: 10%;
+	
+	}
+
+	.header span {
+		padding: 70px;
+		font-size: 20px;
+		color: white;
+		
+	}
+
+	.header span:hover {
+		cursor: pointer;
+		font-size: 24px;
+	}
+
+	.nikelogo img {
+		position: fixed;
+		width: 100px;
+		left : 90%;
+		top : 85%;
+	}
+
+	.nikelogo p {
+		position: fixed;
+		width: 150px;
+		left : 90%;
+		top : 93%;
+	}
+
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+	window.onload = () => {
+		let section = $("section");
+		let pageBtn = $(".pointWrap li");
+		let pageNum = 0;
+		let totalNum = section.length;
+		let scroll;
+		let header = $(".header");
+
+
+		window.addEventListener("scroll", ()=>{
+			scroll = this.scrollY;
+
+			for(let i=0; i<totalNum; i++){
+        if(scroll > section[i].offsetTop - window.innerHeight/3 && scroll < section[i].offsetTop + section[i].offsetHeight - window.innerHeight/3){
+          pageNum = i;
+          break;
+				}
+			}
+			console.log(pageNum);
+			imageChangeFunc();
+		});
+
+		imageChangeFunc = () => {
+			for(let i=0; i<totalNum; i++){
+				section[i].classList.remove("active");
+				pageBtn[i].classList.remove("active");
+			}
+			section[pageNum].classList.add("active");
+			pageBtn[pageNum].classList.add("active");
+
+		}
+
+		for(let i=0; i<pageBtn.length; i++){
+			pageBtn[i].onclick = () => {
+				pageNum = i;
+				imageChangeFunc();
+
+        window.scrollTo({
+            top : section[pageNum].offsetTop,
+            behavior : 'smooth',
+        });
+			}
+		}
+
+	}
+
+
+
+
+</script>
+
+
+<body>
+
+	<div class="header">
+		<span>HOME</span>
+		<span>MID</span>
+		<span>END</span>
+	</div>
+
+	<ul class="pointWrap">
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+
+	<section>
+		<h1>NIKE 스니커즈</h1>
+	</section>
+
+	<section>
+		<div class="innerWrap">
+			<h2>블레이저 미드 `77빈티지</h2>
+			<p>나이키 블레이저 미드 '77 빈티지는 빈티지한 중창 마감 처리로 나이키 올드 스쿨 농구화의 느낌을 살렸으며, 마치 수년간 보관해온 듯한 룩을 연출합니다.</p>
+		</div>
+		<div class="imageWrap">
+			<img src="./myImage/image_page/nike_1_1.JPG" alt="블레이저 미드">
+			<img src="./myImage/image_page/nike_1_2.JPG" alt="블레이저 미드">
+		</div>
+	</section>
+
+	<section>
+			<div class="innerWrap">
+			<h2>에어맥스 95</h2>
+			<p>나이키 에어맥스 95에는 놀랄만큼 편안한 착화감과 편안함과 시선을 사로 잡는 스타일, 그리고 재생 소재가 어우러져 있습니다. 펠트,메쉬 그리고 인조 가죽의 풍부한 텍스처를 선보이며 클래식 러닝 DNA에 새로운 디자인을 선사합니다. 적당히 두툼한 디자인과 부드러운 에어 쿠셔닝, 그리고 나이키 그라인드 고무 밑창으로 트렌드를 선도합니다. 이 제품은 중량 기준 20% 이상 재생 소재로 제작했습니다.</p>
+		</div>
+		<div class="imageWrap">
+			<img src="./myImage/image_page/nike_2_1.JPG" alt="에어맥스 95">
+			<img src="./myImage/image_page/nike_2_2.JPG" alt="에어맥스 95">
+		</div>
+	</section>
+
+	<section>
+			<div class="innerWrap">
+			<h2>리액트 비전 3M</h2>
+			<p>나이키 리액트 비전은 나이키 리액트 기술과 더없이 폭신한 설포로 차원이 다른 편안함을 제공합니다. 다양한 텍스처와 과장된 비율이 3M™ 디테일과 결합되어 초현실적인 독특한 감각을 더해 줍니다.</p>
+		</div>
+		<div class="imageWrap">
+			<img src="./myImage/image_page/nike_3_1.JPG" alt="리액트 비전 3M">
+			<img src="./myImage/image_page/nike_3_2.JPG" alt="리액트 비전 3M">
+		</div>
+	</section>
+	
+	<div class="nikelogo">
+		<a href="https://www.nike.com/kr/ko_kr/"><img src="./myImage/image_page/nike_logo.png" alt="" ></a>
+		<p>created by 호준</p>
+	</div>
+	
+
+
+
+
+</body>
+</html>
