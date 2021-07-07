@@ -1,0 +1,110 @@
+@import url("https://fonts.googleapis.com/css2?family=East+Sea+Dokdo&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Song+Myung&display=swap");
+body {
+  font-family: 'Song Myung',serif;
+  overflow-x: hidden;
+  background: url(../myImage/image_star/bg.jpg);
+  color: white;
+}
+
+.topBtn {
+  background-color: beige;
+  color: black;
+  border-radius: 10%;
+  padding: 5px;
+  font-size: 20px;
+  position: fixed;
+  left: 90%;
+  top: 90%;
+  -webkit-transition: all .3s ease-out;
+  transition: all .3s ease-out;
+}
+
+.topBtn:hover {
+  background-color: #000;
+  border-color: #333;
+  color: #fff;
+}
+
+.starBg {
+  background: url(../myImage/image_star/star.png);
+}
+
+section {
+  position: relative;
+  width: 100vw;
+}
+
+section.top {
+  min-height: 300vh;
+}
+
+section.top h1.title {
+  position: relative;
+  text-align: center;
+  padding-top: 35vh;
+  font-size: 40px;
+  font-weight: 100;
+}
+
+section.top h1.title div {
+  display: inline-block;
+  letter-spacing: -5px;
+}
+
+section.bottom {
+  min-height: 60vh;
+  background: url(../myImage/image_star/bottom.png) center bottom/100% no-repeat;
+}
+
+section.bottom .contWrap {
+  position: relative;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 700px;
+}
+
+section.bottom .contWrap ul li {
+  display: inline-block;
+  margin: 0 2%;
+  width: 130px;
+  height: 200px;
+  border-radius: 6px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10px;
+  -webkit-transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+section.bottom .contWrap ul li.card1 {
+  background-image: url(../myImage/image_star/2.png);
+  background-size: 100%;
+}
+
+section.bottom .contWrap ul li.card2 {
+  background-image: url(../myImage/image_star/3.png);
+  background-size: 100%;
+}
+
+section.bottom .contWrap ul li.card3 {
+  background-image: url(../myImage/image_star/4.png);
+  background-size: 100%;
+}
+
+section.bottom .contWrap ul li.card4 {
+  background-image: url(../myImage/image_star/card_CMC_h.png);
+  background-size: 100%;
+}
+
+section.bottom .contWrap ul li:hover {
+  cursor: pointer;
+  -webkit-transform: translateY(-40px);
+          transform: translateY(-40px);
+}
+
+section.bottom .contWrap h2 {
+  text-align: center;
+  font-size: 30px;
+}
+/*# sourceMappingURL=star_01.css.map */

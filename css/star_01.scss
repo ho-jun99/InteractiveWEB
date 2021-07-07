@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=East+Sea+Dokdo&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Song+Myung&display=swap');
+// font-family: 'East Sea Dokdo', cursive;
+
+body {
+  font-family: 'Song Myung',serif;
+  overflow-x: hidden;
+  background: url(../myImage/image_star/bg.jpg);
+  color: white;
+}
+
+.topBtn{
+  background-color: beige;
+  color: black;
+  border-radius: 10%;
+  padding: 5px;
+  font-size: 20px;
+  position: fixed;
+  left: 90%;
+  top : 90%;
+  transition: all .3s ease-out;
+  &:hover {
+    background-color: #000;
+    border-color: #333;
+    color: #fff;
+  }
+
+
+}
+
+.starBg {
+  background: url(../myImage/image_star/star.png);
+}
+
+section {
+  position: relative;
+  width: 100vw;
+  &.top {
+    min-height: 300vh;
+    h1.title {
+      position: relative;
+      text-align: center;
+      padding-top: 35vh;
+      font-size: 40px;
+      font-weight:100;
+      div {
+        display: inline-block;
+        letter-spacing: -5px;
+      }
+    }
+  }
+
+  &.bottom{
+    min-height: 60vh;
+    background: url(../myImage/image_star/bottom.png) center bottom / 100% no-repeat;
+    .contWrap{
+      position: relative;
+      margin: 0 auto;
+      width: 100%;
+      max-width: 700px;
+      ul {
+        li {
+          display: inline-block;
+          margin : 0 2%;
+          width: 130px;
+          height: 200px;
+          border-radius: 6px;
+          box-sizing: border-box;
+          padding: 10px;
+          transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+          // background: linear-gradient(321deg, #5771ef, #da3755);
+          
+          &.card1{
+            background-image: url(../myImage/image_star/2.png);
+            background-size: 100%;
+          }
+
+          &.card2 {
+            background-image: url(../myImage/image_star/3.png);
+            background-size: 100%;
+          }
+
+          &.card3 {
+            background-image: url(../myImage/image_star/4.png);
+            background-size: 100%;
+          }
+
+          &.card4 {
+            background-image: url(../myImage/image_star/card_CMC_h.png);
+            background-size: 100%;
+          }
+          &:hover {
+            cursor: pointer;
+            transform: translateY(-40px);
+          }
+
+        }
+      }
+
+      h2{
+        text-align: center;
+        font-size: 30px;
+      }
+      
+    }
+  }
+}
